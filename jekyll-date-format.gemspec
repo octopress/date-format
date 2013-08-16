@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Jekyll::DateFormat::VERSION
   gem.authors       = ["Brandon Mathis"]
   gem.email         = ["brandon@imathis.com"]
-  gem.description   = %q{Automatically adds variables with nicely formated dates and time tags to Jekyll posts and pages}
-  gem.summary       = %q{Automatically adds variables with nicely formated dates and time tags to Jekyll posts and pages}
+  gem.description   = %q{Automatically adds variables with nicely formated dates and time tags to Jekyll posts and pages.}
+  gem.summary       = %q{Automatically adds variables with nicely formated dates and time tags to Jekyll posts and pages.}
   gem.homepage      = "https://github.com/octopress/jekyll-date-format"
   gem.license       = "MIT"
 
