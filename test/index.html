@@ -1,0 +1,17 @@
+---
+layout: default
+title: Your New Jekyll Site
+date:   2013-08-16 14:08:15
+---
+
+## Date
+- Date: {{ page.date }}
+- Formatted: {{ page.date_formatted }}
+- TimeTag: {{ page.time_tag }}
+
+{% if page.updated %}
+## Updated
+- Date: {{ page.updated }}
+- Formatted: {{ page.updated_formatted }}
+- TimeTag: {{ page.updated_time_tag }}
+{% endif %}
