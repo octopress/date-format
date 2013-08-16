@@ -8,12 +8,12 @@ Gem::Specification.new do |gem|
   gem.version       = Jekyll::DateFormat::VERSION
   gem.authors       = ["Brandon Mathis"]
   gem.email         = ["brandon@imathis.com"]
-  gem.description   = %q{Format Jekyll page and post dates with <time> tags and timezones}
-  gem.summary       = %q{Format Jekyll page and post dates with <time> tags and timezones}
+  gem.description   = %q{Automatically adds variables with nicely formated dates and time tags to Jekyll posts and pages}
+  gem.summary       = %q{Automatically adds variables with nicely formated dates and time tags to Jekyll posts and pages}
   gem.homepage      = "https://github.com/octopress/jekyll-date-format"
   gem.license       = "MIT"
 
-  gem.add_runtime_dependency 'jekyll', '>= 1.0.3'
+  gem.add_runtime_dependency 'jekyll', '>= 1.0.0'
 
   gem.files         = `git ls-files`.split($/)
   gem.require_paths = ["lib"]

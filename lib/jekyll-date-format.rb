@@ -18,7 +18,7 @@ module Jekyll
 
     def self.time_tag(date, formatted, type)
       t = "<time class='date-#{type}' datetime='#{date}'"
-      t += "pubdate=''" if type == 'published'
+      t += " pubdate" unless type == 'updated'
       t += ">#{formatted}</time>"
     end
 

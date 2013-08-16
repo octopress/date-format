@@ -24,7 +24,8 @@ In your Jekyll configuration (usually the _config.yml) you can set the date
 |:--------------|--------------------------------------------------------------------------------|-----------|
 | date_format   | A [Ruby strftime](http://apidock.com/ruby/DateTime/strftime) compatible string | 'ordinal' |
 
-Any post or page (with a date) will have access to two new variables.
+Any post (or page with a date) will have access to two new variables. Use `post.date_formatted` to output a date formatted based on your `date_format` Jekyll
+configuration, or use `post.time_tag` to output a fully formatted `<time>` tag. For a page, use `page.date_formatted` and `page.time_tag` instead.
 
 ```
 Published: {{ post.date_formatted }} 
@@ -32,10 +33,10 @@ Published: {{ post.time_tag }}
 
 # Which would output
 # Published: July 3, 2013
-# Published: <time class='date-published' datetime='2013-07-03 09:08:15 -0500' pubdate=''>July 3<sup>rd</sup>, 2013</time>
+# Published: <time class='date-published' datetime='2013-07-03 09:08:15 -0500' pubdate>July 3<sup>rd</sup>, 2013</time>
 ```
 
-In the output above it's worth noting that the `pubdate` attribute is a microformat used to help You may find that all you need is `{{ post.time_tag }}` for your templates.
+In the output above it's worth noting that the `pubdate` attribute is a microformat used to help robots distinguish a document's date of publication.
 
 Additionally if you like to keep track of when posts were updated, you can add an updated  `updated: 2013-07-05 4:08:15` to your post or page's YAML front matter and you'll be able to use variables with your udpated date as well.
 
