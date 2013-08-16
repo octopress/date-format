@@ -16,7 +16,10 @@ Or install it yourself as:
 
     $ gem install jekyll-date-format
 
+Next add a ruby file to your Jekyll plugins directory and add `require 'jekyll-date-format'` to the top. That's it.
+
 ## Usage
+
 
 In your Jekyll configuration (usually the _config.yml) you can set the date
 
