@@ -1,1 +1,1 @@
-require 'jekyll-date-format'
+require 'octopress-date-format'

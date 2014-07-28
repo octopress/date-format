@@ -1,4 +1,4 @@
-# Jekyll DateFormat
+# Octopress Date Format
 
 A simple plugin which makes it easy to have nicely formatted dates on any post or page.
 
@@ -6,7 +6,7 @@ A simple plugin which makes it easy to have nicely formatted dates on any post o
 
 Add this line to your application's Gemfile:
 
-    gem 'jekyll-date-format'
+    gem 'octopress-date-format'
 
 And then execute:
 
@@ -14,18 +14,19 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install jekyll-date-format
+    $ gem install octopress-date-format
 
-Next add a ruby file to your Jekyll plugins directory and add `require 'jekyll-date-format'` to the top. That's it.
+Next add it to your gems list in Jekyll's `_config.yml`
 
+    gems:
+      - octopress-date-format
+    
 ## Usage
 
 
-In your Jekyll configuration (usually the _config.yml) you can set the date
-
-| Configuration | Description                                                                    | Default   |
-|:--------------|--------------------------------------------------------------------------------|-----------|
-| date_format   | A [Ruby strftime](http://apidock.com/ruby/DateTime/strftime) compatible string | 'ordinal' |
+In your `_octopress.yml` you can set the date formatting style. By default, the style will be set to ordinal, e.g. July 3rd, 2014. To
+choose a different style, change the `date_format` configuration to another [Ruby strftime](http://apidock.com/ruby/DateTime/strftime)
+compatible string.
 
 Any post (or page with a date) will have access to two new variables. Use `post.date_formatted` to output a date formatted based on your `date_format` Jekyll
 configuration, or use `post.time_tag` to output a fully formatted `<time>` tag. For a page, use `page.date_formatted` and `page.time_tag` instead.
