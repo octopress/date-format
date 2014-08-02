@@ -10,15 +10,15 @@ module Octopress
     end
   end
 
-  module LinkBlog
+  module PageDate
     module Configuration
       DEFAULTS = {
         'date_format' => 'ordinal',
       }
+    end
 
-      def self.config
-        @config ||= Jekyll::Utils.deep_merge_hashes(DEFAULTS, Octopress.config)
-      end
+    def self.config
+      @config ||= Jekyll::Utils.deep_merge_hashes(PageDate::Configuration::DEFAULTS, Octopress.config)
     end
   end
 end

@@ -1,0 +1,13 @@
+## Date
+- Date: {{ page.date }}
+- Formatted Date: {{ page.date_text }}
+- HTML: {{ page.date_html }}
+- XML: {{ page.date_xml }}
+
+{% if page.date_updated %}
+## Updated
+- Date: {{ page.date_updated }}
+- Formatted Date: {{ page.date_updated_text }}
+- HTML: {{ page.date_updated_html }}
+- XML: {{ page.date_updated_xml }}
+{% endif %}
