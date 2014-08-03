@@ -22,20 +22,31 @@ module Octopress
 
         page.data['date_xml']  = date.xmlschema
         page.data['date_text'] = format_date(date)
-        page.data['date_html'] = date_html(date, date.xmlschema)
+        page.data['time_text'] = format_time(date)
+        page.data['date_html'] = date_html(date, false)
+        page.data['date_time_html'] = date_html(date)
       end
 
       if page.data['date_updated']
         updated  = datetime(page.data['date_updated'])
         page.data['date_updated_xml']  = updated.xmlschema
         page.data['date_updated_text'] = format_date(updated)
-        page.data['date_updated_html'] = date_html(updated, updated.xmlschema)
+        page.data['time_updated_text'] = format_time(updated)
+        page.data['date_updated_html'] = date_updated_html(updated, false)
+        page.data['date_time_updated_html'] = date_updated_html(updated)
       end
       page
     end
 
-    def self.date_html(date, xmlschema)
-      "<time class='entry-date' datetime='#{ xmlschema }' pubdate>#{ format_date(date, true) }</time>"
+    def self.date_html(date, time=true)
+      tag =  "<time class='entry-date' datetime='#{ date.xmlschema }'>"
+      tag += "<span class='date'>#{format_date(date, true)}</span>"
+      tag += " <span class='time'>#{format_time(date)}</span>" if time
+      tag += "</time>"
+    end
+
+    def self.date_updated_html(date, time=true)
+      date_html(date, time).sub('entry-date','updated')
     end
 
     def self.format_date(date, html=false)
@@ -45,6 +56,11 @@ module Octopress
       else
         date.strftime(format)
       end
+    end
+
+    def self.format_time(date, html=false)
+      format = config['time_format']
+      date.strftime(format)
     end
 
     # Returns an ordidinal date eg July 22 2007 -> July 22nd 2007

@@ -1,13 +1,17 @@
 ## Date
 - Date: {{ page.date }}
 - Formatted Date: {{ page.date_text }}
-- HTML: {{ page.date_html }}
-- XML: {{ page.date_xml }}
+- Formatted Time: {{ page.time_text }}
+- Date XML: {{ page.date_xml }}
+- Date HTML: {{ page.date_html }}
+- Date Time HTML: {{ page.date_time_html }}
 
 {% if page.date_updated %}
 ## Updated
 - Date: {{ page.date_updated }}
 - Formatted Date: {{ page.date_updated_text }}
-- HTML: {{ page.date_updated_html }}
+- Formatted Time: {{ page.time_updated_text }}
 - XML: {{ page.date_updated_xml }}
+- HTML: {{ page.date_updated_html }}
+- Date Time HTML: {{ page.date_time_updated_html }}
 {% endif %}

@@ -14,6 +14,7 @@ module Octopress
     module Configuration
       DEFAULTS = {
         'date_format' => 'ordinal',
+        'time_format' => '%-I:%M %P',
       }
     end
 
