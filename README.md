@@ -1,6 +1,9 @@
 # Octopress Date Format
 
 A simple plugin which makes it easy to have nicely formatted dates on any post or page.
+[![Build Status](https://travis-ci.org/octopress/date-format.svg)](https://travis-ci.org/octopress/date-format)
+[![Gem Version](http://img.shields.io/gem/v/octopress-date-format.svg)](https://rubygems.org/gems/octopress-date-format)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://octopress.mit-license.org)
 
 ## Installation
 
