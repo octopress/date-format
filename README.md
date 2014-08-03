@@ -1,12 +1,15 @@
-# Jekyll DateFormat
+# Octopress Date Format
 
 A simple plugin which makes it easy to have nicely formatted dates on any post or page.
+[![Build Status](https://travis-ci.org/octopress/date-format.svg)](https://travis-ci.org/octopress/date-format)
+[![Gem Version](http://img.shields.io/gem/v/octopress-date-format.svg)](https://rubygems.org/gems/octopress-date-format)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://octopress.mit-license.org)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'jekyll-date-format'
+    gem 'octopress-date-format'
 
 And then execute:
 
@@ -14,53 +17,75 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install jekyll-date-format
+    $ gem install octopress-date-format
 
-Next add a ruby file to your Jekyll plugins directory and add `require 'jekyll-date-format'` to the top. That's it.
+Next add it to your gems list in Jekyll's `_config.yml`
 
+    gems:
+      - octopress-date-format
+    
 ## Usage
 
+Any post (or page with a date) will automatically have some new date attributes. 
 
-In your Jekyll configuration (usually the _config.yml) you can set the date
+- `date` - The date, `2014-07-03 14:08:00 +0000`
+- `date_text` - The formatted date, Jul 3rd, 2014
+- `time_text` - The formatted time, 2:08 pm
+- `date_xml` - The XML schema formatted date, 2014-07-03T14:08:00+00:00
+- `date_html` - The formatted date in a `<time>` tag.
+- `date_time_html` - The formatted date and time in a `<time>` tag.
 
-| Configuration | Description                                                                    | Default   |
-|:--------------|--------------------------------------------------------------------------------|-----------|
-| date_format   | A [Ruby strftime](http://apidock.com/ruby/DateTime/strftime) compatible string | 'ordinal' |
+Here's an example of what would be rendered with `{{ post.date_time_html }}`.
 
-Any post (or page with a date) will have access to two new variables. Use `post.date_formatted` to output a date formatted based on your `date_format` Jekyll
-configuration, or use `post.time_tag` to output a fully formatted `<time>` tag. For a page, use `page.date_formatted` and `page.time_tag` instead.
-
-```
-Published: {{ post.date_formatted }} 
-Published: {{ post.time_tag }} 
-
-# Which would output
-# Published: July 3, 2013
-# Published: <time class='date-published' datetime='2013-07-03 09:08:15 -0500' pubdate>July 3<sup>rd</sup>, 2013</time>
-```
-
-In the output above it's worth noting that the `pubdate` attribute is a microformat used to help robots distinguish a document's date of publication.
-
-Additionally if you like to keep track of when posts were updated, you can add an updated  `updated: 2013-07-05 4:08:15` to your post or page's YAML front matter and you'll be able to use variables with your udpated date as well.
-
-```
-Last Updated: {{ post.updated_formatted }} 
-Last updated: {{ post.time_tag_updated }} 
-
-# Which would output
-# Last updated: July 5, 2013
-# Last updated: <time class='date-updated' datetime='2013-05-03 04:08:15 -0500'>July 5<sup>th</sup>, 2013</time>
+```html
+<time class='entry-date' datetime='2014-07-03T14:08:00+00:00'>
+  <span class='date'>
+    <span class='date-month'>Jul</span>
+    <span class='date-day'>3</span><span class='date-suffix'>rd</span>,
+    <span class='date-year'>2014</span>
+  </span>
+  <span class='time'>2:08 pm</span>
+</time>
 ```
 
-Of course you can use Liquid conditionals to test for the presence of `post.updated` before outputting an udpated date.
+If you update a post or page and want to display this in a template, add this to YAML
+front-matter, `date_updated: 2014-07-03 15:03:15` and your post will have updated date
+attributes as well.
+
+- `updated` - The date, `2014-07-03 15:03:15 +0000`
+- `date_updated_text` - The formatted date, Jul 3rd, 2014
+- `time_updated_text` - The formatted time, 3:03 pm
+- `date_updated_xml` - The XML schema formatted date, 2014-07-03T15:03:15+00:00
+- `date_updated_html` - The formatted date in a `<time>` tag.
+- `date_time_updated_html` - The formatted date and time in a `<time>` tag.
+
+Of course you can use Liquid conditionals when outputting an updated date.
 
 ```
-{% if post.updated %}Last Updated: {{ post.time_tag_updated }}{% endif %}
+{% if post.updated %}Updated: {{ post.date_time_updated_html }}{% endif %}
+```
+
+## Configuration
+
+You may change the formatting of the dates and times in the
+`_octopress.yml` configuration file. Here are the defaults:
+
+```
+date_format: 'ordinal'     # July 3rd, 2014
+time_format: '%-I:%M %P'   # 2:08 pm
+```
+
+To choose a different format, use a [Ruby strftime](http://apidock.com/ruby/DateTime/strftime)
+compatible string. For example:
+
+```
+date_format: "%Y-%m-%d"  # e.g. 2014-07-03
+time_format: "%H:%M"     # 24 hour time
 ```
 
 ## Contributing
 
-1. Fork it
+1. Fork it ( https://github.com/octopress/date-format/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
