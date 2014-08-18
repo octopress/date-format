@@ -1,17 +1,22 @@
+{% if post %}
+  {% assign entry = post %}
+{% else %}
+  {% assign entry = page %}
+{% endif %}
 ## Date
-- Date: {{ page.date }}
-- Formatted Date: {{ page.date_text }}
-- Formatted Time: {{ page.time_text }}
-- Date XML: {{ page.date_xml }}
-- Date HTML: {{ page.date_html }}
-- Date Time HTML: {{ page.date_time_html }}
+- Date: {{ entry.date }}
+- Formatted Date: {{ entry.date_text }}
+- Formatted Time: {{ entry.time_text }}
+- Date XML: {{ entry.date_xml }}
+- Date HTML: {{ entry.date_html }}
+- Date Time HTML: {{ entry.date_time_html }}
 
-{% if page.date_updated %}
+{% if entry.date_updated %}
 ## Updated
-- Date: {{ page.date_updated }}
-- Formatted Date: {{ page.date_updated_text }}
-- Formatted Time: {{ page.time_updated_text }}
-- XML: {{ page.date_updated_xml }}
-- HTML: {{ page.date_updated_html }}
-- Date Time HTML: {{ page.date_time_updated_html }}
+- Date: {{ entry.date_updated }}
+- Formatted Date: {{ entry.date_updated_text }}
+- Formatted Time: {{ entry.time_updated_text }}
+- XML: {{ entry.date_updated_xml }}
+- HTML: {{ entry.date_updated_html }}
+- Date Time HTML: {{ entry.date_time_updated_html }}
 {% endif %}

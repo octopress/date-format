@@ -27,6 +27,11 @@ module Octopress
         page.data['date_time_html'] = date_html(date)
       end
 
+      # Legacy support
+      if page.data['updated']
+        page.data['date_updated'] = page.data['updated']
+      end
+
       if page.data['date_updated']
         updated  = datetime(page.data['date_updated'])
         page.data['date_updated_xml']  = updated.xmlschema
@@ -41,7 +46,9 @@ module Octopress
     def self.date_html(date, time=true)
       tag =  "<time class='entry-date' datetime='#{ date.xmlschema }'>"
       tag += "<span class='date'>#{format_date(date, true)}</span>"
-      tag += " <span class='time'>#{format_time(date)}</span>" if time
+      if time
+        tag += " <span class='time'>#{format_time(date)}</span>" if time
+      end
       tag += "</time>"
     end
 
