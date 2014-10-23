@@ -16,6 +16,12 @@ module Octopress
       end
     end
 
+    class SiteHook < Hooks::Site
+      def pre_read(site)
+        PageDate::Configuration.jekyll_config = site.config
+      end
+    end
+
     def self.hack_date(page)
       if page.data['date'] || page.respond_to?(:date)
         date = datetime(page.data['date'] || page.date)
