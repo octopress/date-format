@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'jekyll', '~> 2.0'
 
   spec.add_development_dependency 'clash', '~> 1.0'
+  spec.add_development_dependency "rake"
   
   if RUBY_VERSION >= "2"
     spec.add_development_dependency "pry-byebug"
