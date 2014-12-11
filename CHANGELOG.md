@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.0.0 - 2014-10-09
+
+- Now only reads from Jekyll's configuration.
+
 ### 2.0.2 - 2014-10-09
 
 - Also reads from Jekyll's configuration for broader compatibility.
