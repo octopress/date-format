@@ -1,9 +1,21 @@
 require 'octopress-hooks'
-require 'octopress-date-format/configuration'
 require 'octopress-date-format/version'
 
 module Octopress
   module PageDate
+    DEFAULTS = {
+      'date_format' => 'ordinal',
+      'time_format' => '%-I:%M %P'
+    }
+
+    def self.config
+      @config
+    end
+
+    def self.config=(config)
+      @config = DEFAULTS.merge(config)
+    end
+
     class PageHook < Hooks::Page
       def post_init(page)
         PageDate.hack_date(page)
@@ -18,7 +30,7 @@ module Octopress
 
     class SiteHook < Hooks::Site
       def pre_read(site)
-        PageDate::Configuration.jekyll_config = site.config
+        PageDate.config = site.config
       end
     end
 

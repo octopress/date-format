@@ -3,3 +3,6 @@ rvm:
   - 2.0.0
   - 1.9.3
 script: bundle exec clash test
+notifications:
+  slack:
+    secure: FuMwkPyjd/Y+Q3JtlSy7lNHFZUysJu6TdPipMsUxD6XDd5kBsC8p7+dnmZi0QFZNe96T8miOYINVKu5dpRW/Cw/RcV6PSNl99kb6+Mh86u1f7ybucnIsTvlIF25O0s65x5evRYxFtTksnkSIw7vtee7Xg372Xw3fm18YEIUhrdo=

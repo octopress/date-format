@@ -1,2 +1,3 @@
+title: Simple build test
 build: true
 compare: _expected _site

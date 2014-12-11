@@ -68,8 +68,8 @@ Of course you can use Liquid conditionals when outputting an updated date.
 
 ## Configuration
 
-You may change the formatting of the dates and times in the
-`_octopress.yml` configuration file. Here are the defaults:
+You may change the formatting of the dates and times in
+Jekyll's configuration file. Here are the defaults:
 
 ```
 date_format: 'ordinal'     # July 3rd, 2014
