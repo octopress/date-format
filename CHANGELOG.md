@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.0.1 - 2014-10-12
+
+- Documentation now works with Octopress docs.
+
 ### 3.0.0 - 2014-10-09
 
 - Now only reads from Jekyll's configuration.
