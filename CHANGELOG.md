@@ -1,5 +1,9 @@
 # Changelog
 
+### 3.0.2 - 2015-01-06
+
+- Updated Octopress docs integration.
+
 ### 3.0.1 - 2014-10-12
 
 - Documentation now works with Octopress docs.

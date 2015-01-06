@@ -2,7 +2,7 @@ require 'octopress-hooks'
 require 'octopress-date-format/version'
 
 module Octopress
-  module PageDate
+  module DateFormat
     DEFAULTS = {
       'date_format' => 'ordinal',
       'time_format' => '%-I:%M %P'
@@ -18,19 +18,19 @@ module Octopress
 
     class PageHook < Hooks::Page
       def post_init(page)
-        PageDate.hack_date(page)
+        DateFormat.hack_date(page)
       end
     end
 
     class PostHook < Hooks::Post
       def post_init(post)
-        PageDate.hack_date(post)
+        DateFormat.hack_date(post)
       end
     end
 
     class SiteHook < Hooks::Site
       def pre_read(site)
-        PageDate.config = site.config
+        DateFormat.config = site.config
       end
     end
 
@@ -136,6 +136,8 @@ end
 if defined? Octopress::Docs
   Octopress::Docs.add({
     name:        "Octopress Date Format",
+    gem:         "octopress-date-format",
+    version:     Octopress::DateFormat::VERSION,
     description: "Put nicely formatted dates on any post or page",
     path:        File.expand_path(File.join(File.dirname(__FILE__), "../")),
     source_url:  "https://github.com/octopress/date-format",
