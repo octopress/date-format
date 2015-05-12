@@ -1,5 +1,9 @@
 # Changelog
 
+### 4.0.0 - UNRELEASED
+
+- Now using Jekyll Hooks and Jekyll 3.0
+
 ### 3.0.2 - 2015-01-06
 
 - Updated Octopress docs integration.
