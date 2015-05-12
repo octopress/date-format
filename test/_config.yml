@@ -1,5 +1,5 @@
 name: Your New Jekyll Site
-markdown: redcarpet
+markdown: kramdown
 timezone: UTC
 gems:
   - octopress-date-format

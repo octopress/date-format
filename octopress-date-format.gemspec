@@ -8,7 +8,6 @@ Gem::Specification.new do |spec|
   spec.version       = Octopress::DateFormat::VERSION
   spec.authors       = ["Brandon Mathis"]
   spec.email         = ["brandon@imathis.com"]
-  spec.description   = %q{Adds nicely formated dates to Jekyll posts and pages. (formerly: 'jekyll-date-format')}
   spec.summary       = %q{Adds nicely formated dates to Jekyll posts and pages. (formerly: 'jekyll-date-format')}
   spec.homepage      = "https://github.com/octopress/date-format"
   spec.license       = "MIT"
@@ -17,13 +16,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency 'octopress-hooks', '~> 2.0'
-  spec.add_runtime_dependency 'jekyll', '~> 2.0'
+  spec.add_runtime_dependency 'jekyll', '>= 3.0.0.a', '< 4'
 
-  spec.add_development_dependency 'clash', '~> 1.0'
+  spec.add_development_dependency 'clash'
   spec.add_development_dependency "rake"
-  
-  if RUBY_VERSION >= "2"
-    spec.add_development_dependency "pry-byebug"
-  end
+  spec.add_development_dependency "octopress-debugger"
 end
