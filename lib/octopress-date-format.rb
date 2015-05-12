@@ -112,12 +112,34 @@ module Octopress
       end
     end
 
-    Jekyll::Hooks.register :site, :after_reset do |site|
-      DateFormat.config = site.config
-    end
+    if defined?(Jekyll::Hooks)
+      Jekyll::Hooks.register :site, :after_reset do |site|
+        DateFormat.config = site.config
+      end
 
-    Jekyll::Hooks.register [:page, :post], :post_init do |item|
-      DateFormat.hack_date(item)
+      Jekyll::Hooks.register [:page, :post], :post_init do |item|
+        DateFormat.hack_date(item)
+      end
+    else
+      require 'octopress-hooks'
+
+      class PageHook < Hooks::Page
+        def post_init(page)
+          DateFormat.hack_date(page)
+        end
+      end
+
+      class PostHook < Hooks::Post
+        def post_init(post)
+          DateFormat.hack_date(post)
+        end
+      end
+
+      class SiteHook < Hooks::Site
+        def pre_read(site)
+          DateFormat.config = site.config
+        end
+      end
     end
   end
 end

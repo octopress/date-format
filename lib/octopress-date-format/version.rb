@@ -1,5 +1,5 @@
 module Octopress
   module DateFormat
-    VERSION = "4.0.0"
+    VERSION = "3.0.3"
   end
 end

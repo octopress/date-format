@@ -1,8 +1,8 @@
 # Changelog
 
-### 4.0.0 - UNRELEASED
+### 3.0.3 - 2015-05-12
 
-- Now using Jekyll Hooks and Jekyll 3.0
+- Support for Jekyll 3.0 and Jekyll Hooks
 
 ### 3.0.2 - 2015-01-06
 
