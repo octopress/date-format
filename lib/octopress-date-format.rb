@@ -70,11 +70,11 @@ module Octopress
 
       # Returns an ordidinal date eg July 22 2007 -> July 22nd 2007
       def ordinalize(date)
-        "#{date.strftime('%b %-d')}#{ordinal_suffix(date)}, #{date.strftime('%Y')}"
+        "#{date.strftime('%B %-d')}#{ordinal_suffix(date)}, #{date.strftime('%Y')}"
       end
 
       def ordinalize_html(date)
-        d = "<span class='date-month'>#{date.strftime('%b')}</span> "
+        d = "<span class='date-month'>#{date.strftime('%B')}</span> "
         d += "<span class='date-day'>#{date.strftime('%-d')}</span>"
         d += "<span class='date-suffix'>#{ordinal_suffix(date)}</span>, "
         d += "<span class='date-year'>#{date.strftime('%Y')}</span>"
