@@ -68,7 +68,7 @@ module Octopress
         date.strftime(format)
       end
 
-      # Returns an ordidinal date eg July 22 2007 -> July 22nd 2007
+      # Returns an ordinal date eg July 22 2007 -> July 22nd 2007
       def ordinalize(date)
         "#{date.strftime('%b %-d')}#{ordinal_suffix(date)}, #{date.strftime('%Y')}"
       end
@@ -117,7 +117,7 @@ module Octopress
         DateFormat.config = site.config
       end
 
-      Jekyll::Hooks.register [:page, :post], :post_init do |item|
+      Jekyll::Hooks.register [:page, :post, :pages, :posts], :post_init do |item|
         DateFormat.hack_date(item)
       end
     else
