@@ -1,6 +1,8 @@
 name: Your New Jekyll Site
 markdown: kramdown
 timezone: UTC
+plugins:
+  - octopress-date-format
 gems:
   - octopress-date-format
 exclude:
